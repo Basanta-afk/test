@@ -1,24 +1,22 @@
 <template>
   <div class="container">
-    <Header title="This is Header" />
+    <Header :title="title" @changeTitle="updateTitle($event)" />
     <Content :infos="infos" />
-    <Footer title="This is Footer" />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Content from "./components/Content";
 export default {
   name: "App",
   components: {
     Header,
-    Footer,
     Content,
   },
   data() {
     return {
+      title: "This is header",
       infos: [
         {
           id: 1,
@@ -47,6 +45,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    updateTitle: function (updatedTitle) {
+      this.title = updatedTitle;
+    },
   },
 };
 </script>

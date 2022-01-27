@@ -1,21 +1,27 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <Button text="Go Go" color="green" />
+    <button @click="changeTitle">Update</button>
+    <!-- <Button text="change" color="green" /> -->
   </header>
 </template>
 
 <script>
-import Button from "./Button";
+// import Button from "./Button";
 
 export default {
   name: "Header",
   props: {
     title: String,
   },
-  components: {
-    Button,
+  methods: {
+    changeTitle: function () {
+      this.$emit("changeTitle", "hi");
+    },
   },
+  //   components: {
+  //     Button,
+  //   },
 };
 </script>
 
